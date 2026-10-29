@@ -1,29 +1,5 @@
 <?php
-// Database Connection
-define('BASE_URL', 'http://localhost/it3a');
-
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'it3a_lab_db');
-define('DB_USER', 'root');
-define('DB_PASS', '');
-
-$user_id = "root" ?? null;
-$user_email = "root" ?? null;
-
-try {
-    $pdo = new PDO(
-        "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME,
-        DB_USER,
-        DB_PASS,
-        [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
-    );
-
-} catch (PDOException $e) {
-    die("Connection Failed: " . $e->getMessage());
-}
-//Session
-session_start();
-
+require_once '../../config/config.php';
 //Determine current section
 $section = $_GET['section'] ?? 'students';
 
